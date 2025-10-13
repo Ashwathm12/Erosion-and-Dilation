@@ -21,49 +21,56 @@ Apply dilation using cv2.dilate() on the image with the same kernel.
 Display and compare the original, eroded, and dilated images.
  
 ## Program
-## Developed by: Karan A
-### Reg NO: 212223230099
+## Developed by: Ashwath M
+### Reg NO: 212223230023
 ``` 
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 ```
 ```
-image = np.zeros((600, 600), dtype=np.uint8)
-cv2.putText(image,text='KARAN A',org=(40,300),fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=4,color=(255,255,255),thickness=25,lineType=cv2.LINE_AA)
-plt.imshow(image,cmap='gray')
-plt.axis('off') 
-plt.show()
+def load_img():
+    blank_img =np.zeros((800,800))
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(blank_img,text='ASHWATH',org=(50,300), fontFace=font,fontScale= 5,color=(255,255,255),thickness=25,lineType=cv2.LINE_AA)
+    return blank_img
 ```
 ```
-kernel = np.ones((10, 10), np.uint8)
-eroded_image = cv2.erode(image, kernel, iterations=1)
+def display_img(img):
+    fig = plt.figure(figsize=(12,10))
+    ax = fig.add_subplot(111)
+    ax.imshow(img,cmap='gray')
+    plt.show()
 ```
 ```
-plt.imshow(eroded_image,cmap='gray')
-plt.title("Eroded Image")
-plt.axis('off')
+img = load_img()
+display_img(img)
 ```
 ```
-dilated_image = cv2.dilate(image, kernel, iterations=1)
+kernel = np.ones((5,5),dtype=np.uint8)
+erosion1 = cv2.erode(img,kernel,iterations = 3)
+display_img(erosion1)
 ```
 ```
-plt.imshow(dilated_image,cmap='gray') 
-plt.title("Dilated Image")
-plt.axis('off')
+kernel = np.ones((5,5),dtype=np.uint8)
+dilation = cv2.dilate(img,kernel,iterations = 2)
+display_img(dilation)
 ```
 ## Output:
 
 ### Display the input Image
-<img width="389" height="389" alt="image" src="https://github.com/user-attachments/assets/f0558053-31d1-4eae-8806-a5d1db49bd68" />
+<img width="765" height="761" alt="image" src="https://github.com/user-attachments/assets/1be226b0-e608-42b2-9eb8-76df4880dc01" />
+
 
 
 ### Display the Eroded Image
-<img width="389" height="411" alt="image" src="https://github.com/user-attachments/assets/7058dfaf-ccb5-43b8-a6ac-e8a50f26644a" />
+<img width="767" height="762" alt="image" src="https://github.com/user-attachments/assets/59bc2adb-226f-4720-8197-287e9bad25e5" />
+
 
 
 ### Display the Dilated Image
-<img width="389" height="411" alt="image" src="https://github.com/user-attachments/assets/d9cb679e-3bd8-4a2d-8ce4-c616c8e18bd2" />
+<img width="782" height="757" alt="image" src="https://github.com/user-attachments/assets/84661ce2-d18f-47c2-ac40-ad9d1970cf15" />
+
 
 
 ## Result
