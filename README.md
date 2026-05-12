@@ -1,4 +1,7 @@
-# Implementation-of-Erosion-and-Dilation
+# Exp 9 - Implementation-of-Erosion-and-Dilation
+## Name: Ashwath M
+## Register number: 212223230023
+
 ## Aim
 To implement Erosion and Dilation using Python and OpenCV.
 ## Software Required
